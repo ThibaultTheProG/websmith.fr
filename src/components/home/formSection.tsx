@@ -19,7 +19,7 @@ export default function FormSection() {
   }
   
   return (
-    <div className="flex flex-col space-y-12 w-full max-w-6xl mx-auto px-4">
+    <div className="flex flex-col space-y-12 w-full mx-auto">
       <div className="text-center space-y-4">
         <span className="light:text-blue-dark dark:text-yellow-dark font-medium">Contactez-nous</span>
         <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white">

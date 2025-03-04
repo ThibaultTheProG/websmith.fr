@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { FormData } from "@/lib/types";
 import { useThemeContext } from "@/app/providers";
-import { Send, User, Mail, Phone, FileText, CheckCircle } from "lucide-react";
+import { Send, User, Mail, Phone, FileText, CheckCircle, Tag } from "lucide-react";
 
 export default function Form() {
   const { mounted, isDark } = useThemeContext();
@@ -11,6 +11,7 @@ export default function Form() {
     fullName: "",
     email: "",
     phone: "",
+    subject: "Développement web", // Valeur par défaut
     projectDescription: "",
   });
 
@@ -37,6 +38,10 @@ export default function Form() {
       !/^(\+33|0)[1-9](\d{2}){4}$/.test(formData.phone.replace(/\s/g, ""))
     ) {
       newErrors.phone = "Le numéro de téléphone n'est pas valide";
+    }
+
+    if (!formData.subject) {
+      newErrors.subject = "L'objet de la demande est requis";
     }
 
     if (!formData.projectDescription.trim()) {
@@ -68,6 +73,7 @@ export default function Form() {
             fullName: "",
             email: "",
             phone: "",
+            subject: "Développement web",
             projectDescription: "",
           });
           setErrors({});
@@ -78,7 +84,7 @@ export default function Form() {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -203,6 +209,34 @@ export default function Form() {
           {errors.phone && (
             <p className="text-red-500 text-sm flex items-center">
               <span className="ml-1">{errors.phone}</span>
+            </p>
+          )}
+        </div>
+
+        <div className="space-y-2">
+          <label htmlFor="subject" className="flex items-center text-sm font-medium text-gray-700 dark:text-gray-200">
+            <Tag size={18} className="mr-2" />
+            Objet de la demande
+          </label>
+          <select
+            id="subject"
+            name="subject"
+            value={formData.subject}
+            onChange={handleChange}
+            className={`w-full px-4 py-3 border rounded-lg bg-transparent focus:ring-2 focus:outline-none transition-colors duration-200 ${
+              isDark 
+                ? `border-gray-600 focus:ring-yellow-dark ${errors.subject ? "border-red-500" : "focus:border-yellow-dark"}` 
+                : `border-gray-300 focus:ring-blue-dark ${errors.subject ? "border-red-500" : "focus:border-blue-dark"}`
+            }`}
+          >
+            <option value="Développement web">Développement web</option>
+            <option value="Développement mobile">Développement mobile</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Autre">Autre</option>
+          </select>
+          {errors.subject && (
+            <p className="text-red-500 text-sm flex items-center">
+              <span className="ml-1">{errors.subject}</span>
             </p>
           )}
         </div>
