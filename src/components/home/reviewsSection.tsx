@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { useThemeContext } from "@/app/providers";
 
 interface Review {
   id: number;
@@ -44,7 +45,7 @@ const reviews: Review[] = [
 
 export default function Reviews() {
   const [currentIndex, setCurrentIndex] = useState(0);
-
+  const { mounted } = useThemeContext();
   const nextReview = () => {
     setCurrentIndex((prevIndex) =>
       prevIndex === reviews.length - 1 ? 0 : prevIndex + 1
@@ -57,14 +58,26 @@ export default function Reviews() {
     );
   };
 
+  if (!mounted) {
+    return (
+      <div className="flex flex-col space-y-8">
+        <div className="text-center space-y-4">
+          <div className="h-6 w-36 bg-gray-200 dark:bg-gray-700 rounded"></div>
+          <div className="h-12 w-full max-w-md bg-gray-200 dark:bg-gray-700 rounded"></div> 
+          <div className="h-20 w-full max-w-2xl bg-gray-200 dark:bg-gray-700 rounded"></div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="flex flex-col space-y-8">
       <div className="text-center space-y-4">
-        <span className="text-yellow-dark font-medium">Témoignages</span>
+        <span className="dark:text-yellow-dark light:text-blue-dark font-medium">Témoignages</span>
         <h2 className="text-3xl md:text-4xl font-bold">
           Ils nous font confiance
         </h2>
-        <p className="text-gray-300 max-w-2xl mx-auto">
+        <p className="dark:text-gray-300 light:text-gray-600 max-w-2xl mx-auto">
           Découvrez ce que nos clients disent de notre collaboration.
         </p>
       </div>
@@ -73,7 +86,7 @@ export default function Reviews() {
         {/* Boutons de navigation */}
         <button
           onClick={previousReview}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full p-3 transition-colors"
+          className="cursor-pointer absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gray-200 hover:bg-gray-200 text-gray-700 rounded-full p-3 transition-colors"
           aria-label="Avis précédent"
         >
           <svg
@@ -94,7 +107,7 @@ export default function Reviews() {
 
         <button
           onClick={nextReview}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full p-3 transition-colors"
+          className="cursor-pointer absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gray-200 hover:bg-gray-200 text-gray-700 rounded-full p-3 transition-colors"
           aria-label="Avis suivant"
         >
           <svg
@@ -114,7 +127,7 @@ export default function Reviews() {
         </button>
 
         {/* Carrousel d'avis */}
-        <div className="bg-white rounded-xl shadow-lg p-8 transition-all duration-500">
+        <div className="dark:bg-gray-300 light:bg-gray-100 rounded-xl shadow-lg p-8 transition-all duration-500">
           <div className="flex flex-col items-center space-y-6">
             {/* Logo client */}
             <div className="relative w-32 h-32">
@@ -131,7 +144,7 @@ export default function Reviews() {
               {[...Array(reviews[currentIndex].rating)].map((_, i) => (
                 <svg
                   key={i}
-                  className="w-5 h-5 text-yellow-dark"
+                  className="w-5 h-5 dark:text-yellow-dark light:text-blue-dark"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -148,7 +161,7 @@ export default function Reviews() {
             {/* Informations client */}
             <div className="text-center">
               <p className="font-semibold text-black">{reviews[currentIndex].clientName}</p>
-              <p className="text-gray-500">{reviews[currentIndex].companyName}</p>
+              <p className="text-gray-600">{reviews[currentIndex].companyName}</p>
             </div>
           </div>
         </div>
@@ -160,7 +173,7 @@ export default function Reviews() {
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`w-2 h-2 rounded-full transition-colors ${
-                index === currentIndex ? 'bg-yellow-dark' : 'bg-gray-200'
+                index === currentIndex ? 'dark:bg-yellow-dark light:bg-blue-dark' : 'dark:bg-gray-200 light:bg-gray-200'
               }`}
               aria-label={`Aller à l'avis ${index + 1}`}
             />

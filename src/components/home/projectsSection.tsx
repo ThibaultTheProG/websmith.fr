@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-
+import { useThemeContext } from "@/app/providers";
 type ProjectType = "tous" | "web" | "mobile" | "marketing" | "autre";
 
 export interface Project {
@@ -71,7 +71,7 @@ export default function Projects() {
   const [filteredProjects, setFilteredProjects] = useState<Project[]>(projects);
   const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 3;
-
+  const { mounted } = useThemeContext();
   const projectTypes: ProjectType[] = ['tous', 'web', 'mobile', 'marketing', 'autre'];
 
   useEffect(() => {
@@ -92,14 +92,25 @@ export default function Projects() {
   // Fonction pour changer de page
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
-  return (
-    <div className="flex flex-col space-y-8">
-      <div className="text-center space-y-4">
-        <span className="text-yellow-dark font-medium">Nos réalisations</span>
+  if (!mounted) {
+    return (
+      <div className="flex flex-col space-y-8">
+        <div className="text-center space-y-4">
+          <div className="h-6 w-36 bg-gray-200 dark:bg-gray-700 rounded"></div>
+          <div className="h-12 w-full max-w-md bg-gray-200 dark:bg-gray-700 rounded"></div>
+          <div className="h-20 w-full max-w-2xl bg-gray-200 dark:bg-gray-700 rounded"></div>
+        </div>
+      </div>
+    )
+  }
+    return (
+      <div className="flex flex-col space-y-8">
+        <div className="text-center space-y-4">
+        <span className="dark:text-yellow-dark light:text-blue-dark font-medium">Nos réalisations</span>
         <h2 className="text-3xl md:text-4xl font-bold">
           Découvrez nos derniers projets
         </h2>
-        <p className="text-gray-300 max-w-2xl mx-auto">
+        <p className="dark:text-gray-300 light:text-gray-600 max-w-2xl mx-auto">
           Des solutions sur mesure qui répondent aux besoins spécifiques de nos clients.
         </p>
       </div>
@@ -112,8 +123,8 @@ export default function Projects() {
             onClick={() => setSelectedType(type)}
             className={`px-4 py-2 rounded-full transition-colors ${
               selectedType === type
-                ? 'bg-yellow-dark text-black'
-                : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                ? 'dark:bg-yellow-dark light:bg-blue-dark dark:text-black light:text-white'
+                : 'dark:bg-gray-100 light:bg-gray-200 text-gray-700'
             }`}
           >
             {type.charAt(0).toUpperCase() + type.slice(1)}
@@ -126,7 +137,7 @@ export default function Projects() {
         {currentProjects.map((project) => (
           <div
             key={project.id}
-            className="bg-black-light rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105 flex flex-col"
+            className="dark:bg-black-light light:bg-gray-100 rounded-lg shadow-lg overflow-hidden transition-transform hover:scale-105 flex flex-col"
           >
             <div className="relative h-48">
               <Image
@@ -139,18 +150,18 @@ export default function Projects() {
             </div>
             <div className="p-4 flex flex-col flex-grow">
               <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-              <p className="text-gray-300 mb-4">{project.description}</p>
+              <p className="dark:text-gray-300 light:text-gray-600 mb-4">{project.description}</p>
               <div className="mt-auto flex justify-between items-center">
-                <span className="inline-block px-3 py-1 bg-yellow-dark rounded-full text-sm text-black">
+                <span className="inline-block px-3 py-1 dark:bg-yellow-dark light:bg-blue-dark dark:text-black light:text-white rounded-full text-sm">
                   {project.type}
                 </span>
                 <Link
                   href={project.projectUrl} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="text-gray-300 hover:text-yellow-dark flex items-center transition-colors group"
+                  className="dark:text-gray-300 light:text-gray-600 dark:hover:text-yellow-dark light:hover:text-blue-dark flex items-center transition-colors group"
                 >
-                  <span className="border-b border-transparent group-hover:border-yellow-dark">Voir le projet</span>
+                  <span className="border-b border-transparent dark:group-hover:border-yellow-dark light:group-hover:border-blue-dark">Voir le projet</span>
                   <svg 
                     className="w-4 h-4 ml-1 transition-transform group-hover:translate-x-0.5" 
                     fill="none" 
@@ -194,8 +205,8 @@ export default function Projects() {
                 onClick={() => paginate(number)}
                 className={`w-8 h-8 rounded-full ${
                   currentPage === number
-                    ? 'bg-yellow-dark text-black'
-                    : 'bg-gray-100 hover:bg-gray-200 text-gray-700'
+                    ? 'dark:bg-yellow-dark light:bg-blue-dark dark:text-black light:text-white'
+                    : 'dark:bg-gray-100 light:bg-gray-200 text-gray-700'
                 }`}
               >
                 {number}
