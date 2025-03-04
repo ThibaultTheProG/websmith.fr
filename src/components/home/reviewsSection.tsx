@@ -2,7 +2,15 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
-import { Review } from "@/lib/types";
+
+interface Review {
+  id: number;
+  clientName: string;
+  companyName: string;
+  logoUrl: string;
+  content: string;
+  rating: number;
+}
 
 const reviews: Review[] = [
   {
@@ -50,17 +58,22 @@ export default function Reviews() {
   };
 
   return (
-    <div className="flex flex-col space-y-8 py-12">
+    <div className="flex flex-col space-y-8">
       <div className="text-center space-y-4">
-        <span className="text-yellow-dark">Ils nous font confiance</span>
-        <h2 className="text-3xl font-bold">Les avis de nos clients</h2>
+        <span className="text-yellow-dark font-medium">Témoignages</span>
+        <h2 className="text-3xl md:text-4xl font-bold">
+          Ils nous font confiance
+        </h2>
+        <p className="text-gray-300 max-w-2xl mx-auto">
+          Découvrez ce que nos clients disent de notre collaboration.
+        </p>
       </div>
 
       <div className="relative max-w-4xl mx-auto px-4">
         {/* Boutons de navigation */}
         <button
           onClick={previousReview}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-yellow-light hover:bg-yellow-dark text-black rounded-full p-3 transition-colors"
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full p-3 transition-colors"
           aria-label="Avis précédent"
         >
           <svg
@@ -73,7 +86,7 @@ export default function Reviews() {
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth={2}
+              strokeWidth={1.5}
               d="M15 19l-7-7 7-7"
             />
           </svg>
@@ -81,7 +94,7 @@ export default function Reviews() {
 
         <button
           onClick={nextReview}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-yellow-light hover:bg-yellow-dark text-black rounded-full p-3 transition-colors"
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-full p-3 transition-colors"
           aria-label="Avis suivant"
         >
           <svg
@@ -94,26 +107,23 @@ export default function Reviews() {
             <path
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth={2}
+              strokeWidth={1.5}
               d="M9 5l7 7-7 7"
             />
           </svg>
         </button>
 
         {/* Carrousel d'avis */}
-        <div className="bg-black-light rounded-xl shadow-lg p-8 transition-all duration-500 text-white">
+        <div className="bg-white rounded-xl shadow-lg p-8 transition-all duration-500">
           <div className="flex flex-col items-center space-y-6">
             {/* Logo client */}
-            <div className="relative w-32 h-32 bg-white rounded-full p-4">
-              <div className="relative w-full h-full flex items-center justify-center">
-                <Image
-                  src={reviews[currentIndex].logoUrl}
-                  alt={reviews[currentIndex].companyName}
-                  fill
-                  sizes="128px"
-                  className="object-contain p-2"
-                />
-              </div>
+            <div className="relative w-32 h-32">
+              <Image
+                src={reviews[currentIndex].logoUrl}
+                alt={reviews[currentIndex].companyName}
+                fill
+                className="object-contain"
+              />
             </div>
 
             {/* Étoiles */}
@@ -131,16 +141,14 @@ export default function Reviews() {
             </div>
 
             {/* Contenu de l'avis */}
-            <blockquote className="text-center italic">
+            <blockquote className="text-center text-gray-600 italic">
               &ldquo;{reviews[currentIndex].content}&rdquo;
             </blockquote>
 
             {/* Informations client */}
             <div className="text-center">
-              <p className="font-semibold">
-                {reviews[currentIndex].clientName}
-              </p>
-              <p>{reviews[currentIndex].companyName}</p>
+              <p className="font-semibold text-black">{reviews[currentIndex].clientName}</p>
+              <p className="text-gray-500">{reviews[currentIndex].companyName}</p>
             </div>
           </div>
         </div>
@@ -152,7 +160,7 @@ export default function Reviews() {
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`w-2 h-2 rounded-full transition-colors ${
-                index === currentIndex ? "bg-yellow-dark" : "bg-yellow-light"
+                index === currentIndex ? 'bg-yellow-dark' : 'bg-gray-200'
               }`}
               aria-label={`Aller à l'avis ${index + 1}`}
             />

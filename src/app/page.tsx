@@ -4,16 +4,34 @@ import Services from "@/components/home/servicesSection";
 import Projects from "@/components/home/projectsSection";
 import Reviews from "@/components/home/reviewsSection";
 import FormSection from "@/components/home/formSection";
+
 export default function Home() {
   return (
     <>
-      <main className="p-8 space-y-4">
-        <Hero />
-        <Why />
-        <Services />
-        <Projects />
-        <Reviews />
-        <FormSection />
+      <main className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="py-12 md:py-16">
+          <Hero />
+        </section>
+        
+        <section className="py-12 md:py-16">
+          <Why />
+        </section>
+        
+        <section className="py-12 md:py-16">
+          <Services />
+        </section>
+        
+        <section className="py-12 md:py-16">
+          <Projects />
+        </section>
+        
+        <section className="py-12 md:py-16">
+          <Reviews />
+        </section>
+        
+        <section className="py-12 md:py-16">
+          <FormSection />
+        </section>
       </main>
     </>
   );
