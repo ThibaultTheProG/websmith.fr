@@ -28,8 +28,8 @@ export default function Button({
     ghost: "text-yellow-dark hover:bg-yellow-dark/10 focus:ring-yellow-dark cursor-pointer",
     primaryLight: "bg-blue-dark text-white hover:bg-blue-light hover:text-black focus:ring-blue-dark cursor-pointer border-2 border-blue-dark",
     outlineLight: "border-2 border-blue-dark text-blue-dark hover:bg-blue-dark hover:text-white focus:ring-blue-dark cursor-pointer",
-    onColor: "bg-yellow-dark text-white hover:bg-yellow-light hover:text-black focus:ring-yellow-dark cursor-pointer border-2 border-yellow-dark hover:border-black",
-    onColorLight: "bg-blue-light text-black hover:bg-blue-dark hover:text-white focus:ring-blue-dark cursor-pointer border-2 border-blue-dark"
+    onColor: "bg-yellow-dark text-black hover:bg-yellow-light hover:text-black focus:ring-yellow-dark cursor-pointer border-2 border-yellow-dark hover:border-black",
+    onColorLight: "bg-blue-dark text-white hover:bg-blue-light hover:text-blue-dark focus:ring-blue-dark cursor-pointer border-2 border-blue-dark"
   };
 
   const sizes = {
