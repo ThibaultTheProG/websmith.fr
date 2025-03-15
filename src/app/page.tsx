@@ -6,9 +6,11 @@ import Reviews from "@/components/home/reviewsSection";
 import FormSection from "@/components/home/formSection";
 
 export default function Home() {
+
+
   return (
     <>
-      <main className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="container mx-auto sm:px-2 lg:px-4">
         <section className="py-12 md:py-16">
           <Hero />
         </section>

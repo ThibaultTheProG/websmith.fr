@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FormData } from "@/lib/types";
 import { useThemeContext } from "@/app/providers";
 import { Send, User, Mail, Phone, FileText, CheckCircle, Tag } from "lucide-react";
+import config from "@/lib/config";
 
 export default function Form() {
   const { mounted, isDark } = useThemeContext();
@@ -58,10 +59,21 @@ export default function Form() {
     if (validateForm()) {
       setIsSubmitting(true);
       
-      // Simuler un délai d'envoi pour montrer le loader
-      setTimeout(() => {
-        // Ici, vous pourrez ajouter la logique d'envoi du formulaire
-        console.log("Formulaire soumis:", formData);
+      try {
+        // Appel à la fonction Firebase
+        const response = await fetch(`${config.firebaseFunctionsBaseUrl}${config.endpoints.contact}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+        
+        if (!response.ok) {
+          throw new Error(data.message || 'Une erreur est survenue lors de l\'envoi du formulaire');
+        }
         
         // Afficher le message de succès
         setIsSubmitted(true);
@@ -79,7 +91,11 @@ export default function Form() {
           setErrors({});
           setIsSubmitted(false);
         }, 3000);
-      }, 1500);
+      } catch (error) {
+        console.error('Erreur lors de l\'envoi du formulaire:', error);
+        alert('Une erreur est survenue lors de l\'envoi du formulaire. Veuillez réessayer plus tard.');
+        setIsSubmitting(false);
+      }
     }
   };
 

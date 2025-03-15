@@ -1,4 +1,4 @@
-export type ProjectType = "tous" | "web" | "mobile" | "marketing" | "autre";
+export type ProjectType = "site-internet" | "application-web" | "application-mobile" | "marketing" | "tous";
 
 export interface Project {
   id: number;
@@ -6,6 +6,9 @@ export interface Project {
   description: string;
   type: ProjectType;
   imageUrl: string;
+  link?: string;
+  technologies?: string[];
+  client?: string;
 }
 
 export interface Review {

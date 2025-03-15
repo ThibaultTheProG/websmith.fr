@@ -1,0 +1,2 @@
+# Ignorer le dossier functions car il a sa propre configuration ESLint
+functions/ 
