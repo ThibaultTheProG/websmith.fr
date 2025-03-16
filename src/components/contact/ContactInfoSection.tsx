@@ -45,7 +45,7 @@ export default function ContactInfoSection() {
     },
     {
       title: "Email",
-      content: "contact@websmith.fr",
+      content: "thibault.tuffin@websmith.fr",
       icon: (
         mounted ? (
           <Image

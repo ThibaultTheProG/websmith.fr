@@ -1,20 +1,27 @@
 "use client";
 
 import { useThemeContext } from "@/app/providers";
-import { ShoppingBag, Briefcase, Heart, Gamepad, Newspaper, MessageSquare } from "lucide-react";
+import {
+  ShoppingBag,
+  Briefcase,
+  Heart,
+  Gamepad,
+  Newspaper,
+  MessageSquare,
+} from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 export default function TypesProjets() {
   const { isDark, mounted } = useThemeContext();
 
-  if (!mounted){
+  if (!mounted) {
     return (
       <section className="py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <h1>En cours de développement</h1>
         </div>
       </section>
-    )
+    );
   }
 
   const projets = [
@@ -68,7 +75,9 @@ export default function TypesProjets() {
             que nous développons
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-            Nous concevons et développons une large gamme d'applications mobiles pour répondre aux besoins spécifiques de chaque secteur d'activité.
+            {
+              "Nous concevons et développons une large gamme d'applications mobiles pour répondre aux besoins spécifiques de chaque secteur d'activité."
+            }
           </p>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -110,7 +119,9 @@ export default function TypesProjets() {
                 Des applications pour tous les secteurs
               </h3>
               <p className="text-white/80">
-                Quelle que soit votre industrie, nous avons l'expertise pour créer l'application mobile qui répondra à vos besoins spécifiques.
+                {
+                  "Quelle que soit votre industrie, nous avons l'expertise pour créer l'application mobile qui répondra à vos besoins spécifiques."
+                }
               </p>
               <div className="mt-4">
                 <Link
@@ -130,4 +141,4 @@ export default function TypesProjets() {
       </div>
     </section>
   );
-} 
+}

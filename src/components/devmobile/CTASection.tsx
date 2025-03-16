@@ -34,7 +34,7 @@ export default function CTASection() {
               en application mobile ?
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-              Contactez-nous dès aujourd'hui pour discuter de votre projet et découvrir comment nous pouvons vous aider à créer une application mobile sur mesure qui répond parfaitement à vos besoins.
+              {"Contactez-nous dès aujourd'hui pour discuter de votre projet et découvrir comment nous pouvons vous aider à créer une application mobile sur mesure qui répond parfaitement à vos besoins."}
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link

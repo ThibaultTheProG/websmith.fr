@@ -48,7 +48,7 @@ export default function DataAnalytics() {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            L'analyse de données au service de votre{" "}
+            {"L'analyse de données au service de votre"}
             <span className={isDark ? "text-yellow-dark" : "text-blue-dark"}>
               stratégie marketing
             </span>

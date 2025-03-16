@@ -2,7 +2,6 @@
 
 import { useThemeContext } from "@/app/providers";
 import { Briefcase, Code, Smartphone, BarChart } from "lucide-react";
-import Image from "next/image";
 
 export default function HeroSection() {
   const { isDark, mounted } = useThemeContext();

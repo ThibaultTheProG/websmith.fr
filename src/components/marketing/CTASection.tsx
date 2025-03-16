@@ -34,7 +34,9 @@ export default function CTASection() {
               vos opérations marketing ?
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
-              Contactez-nous dès aujourd'hui pour discuter de vos besoins en marketing ops et découvrir comment nos solutions peuvent vous aider à atteindre vos objectifs.
+              {
+                "Contactez-nous dès aujourd'hui pour discuter de vos besoins en marketing ops et découvrir comment nos solutions peuvent vous aider à atteindre vos objectifs."
+              }
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Link
@@ -104,4 +106,4 @@ export default function CTASection() {
       </div>
     </section>
   );
-} 
+}

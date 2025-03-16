@@ -81,11 +81,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
               : "Marketing"}
           </span>
         </div>
-        {project.client && (
-          <p className="text-sm text-gray-500 dark:text-gray-400 mb-2">
-            Client: {project.client}
-          </p>
-        )}
         <p className="text-gray-600 dark:text-gray-300 line-clamp-3">
           {project.description}
         </p>

@@ -46,7 +46,7 @@ export default function Footer() {
                   <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                 </svg>
                 <a href="mailto:contact@websmith.fr" className="dark:hover:text-yellow-dark light:hover:text-blue-dark transition-colors">
-                  contact@websmith.fr
+                  thibault.tuffin@websmith.fr
                 </a>
               </li>
               <li className="flex items-center space-x-2">
@@ -65,8 +65,18 @@ export default function Footer() {
             <h3 className="text-lg font-semibold dark:text-yellow-dark light:text-blue-dark">Liens Rapides</h3>
             <ul className="space-y-2 dark:text-gray-400 light:text-gray-600">
               <li>
-                <Link href="/services" className="dark:hover:text-yellow-dark light:hover:text-blue-dark transition-colors">
-                  Nos Services
+                <Link href="/devweb" className="dark:hover:text-yellow-dark light:hover:text-blue-dark transition-colors">
+                  Développement web
+                </Link>
+              </li>
+              <li>
+                <Link href="/devmobile" className="dark:hover:text-yellow-dark light:hover:text-blue-dark transition-colors">
+                  Développement mobile
+                </Link>
+              </li>
+              <li>
+                <Link href="/marketing" className="dark:hover:text-yellow-dark light:hover:text-blue-dark transition-colors">
+                  Marketing Ops
                 </Link>
               </li>
               <li>

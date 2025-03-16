@@ -51,7 +51,7 @@ export default function FAQSection() {
   return (
     <section className="py-16 bg-gray-50 dark:bg-black-light rounded-lg mb-16">
       <div className="grid md:grid-cols-2 gap-8 px-12">
-        <div className="flex items-center">
+        <div className="flex items-center justify-center">
           <Image
             src={isDark ? "/images/SVG/contact/b_faq.svg" : "/images/SVG/contact/l_faq.svg"}
             alt="FAQ"

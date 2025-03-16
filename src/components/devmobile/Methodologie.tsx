@@ -1,19 +1,26 @@
 "use client";
 
 import { useThemeContext } from "@/app/providers";
-import { ClipboardList, Code, Smartphone, Gauge, Repeat, Lightbulb } from "lucide-react";
+import {
+  ClipboardList,
+  Code,
+  Smartphone,
+  Gauge,
+  Repeat,
+  Lightbulb,
+} from "lucide-react";
 import Link from "next/link";
 export default function Methodologie() {
   const { isDark, mounted } = useThemeContext();
 
-  if (!mounted){
+  if (!mounted) {
     return (
       <section className="py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <h1>En cours de développement</h1>
         </div>
       </section>
-    )
+    );
   }
 
   const etapes = [
@@ -66,7 +73,9 @@ export default function Methodologie() {
           de développement
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          Nous suivons une approche agile et structurée pour garantir le succès de votre projet d'application mobile.
+          {
+            "Nous suivons une approche agile et structurée pour garantir le succès de votre projet d'application mobile."
+          }
         </p>
       </div>
 
@@ -87,9 +96,7 @@ export default function Methodologie() {
                   isDark ? "bg-yellow-light" : "bg-blue-light"
                 }`}
               >
-                <span className="text-black">
-                  {etape.icon}
-                </span>
+                <span className="text-black">{etape.icon}</span>
               </div>
               <div>
                 <h3 className="text-xl font-bold mb-2">{etape.title}</h3>
@@ -113,7 +120,9 @@ export default function Methodologie() {
 
       <div className="mt-16 text-center">
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          Notre approche agile nous permet de nous adapter rapidement aux changements et d'impliquer nos clients à chaque étape du processus de développement.
+          {
+            "Notre approche agile nous permet de nous adapter rapidement aux changements et d'impliquer nos clients à chaque étape du processus de développement."
+          }{" "}
         </p>
         <div className="mt-8">
           <Link
@@ -131,4 +140,4 @@ export default function Methodologie() {
       </div>
     </section>
   );
-} 
+}

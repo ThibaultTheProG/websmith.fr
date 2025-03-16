@@ -4,6 +4,7 @@ import { useThemeContext } from "@/app/providers";
 import { Smartphone, Code, Zap } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
 export default function HeroSection() {
   const { isDark, mounted } = useThemeContext();
 
@@ -22,7 +23,7 @@ export default function HeroSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div className="space-y-6">
           <h1 className="text-3xl md:text-5xl font-bold leading-tight">
-            Développement d'applications mobiles{" "}
+            {"Développement d'applications mobiles"}
             <span className={isDark ? "text-yellow-dark" : "text-blue-dark"}>
               sur mesure
             </span>

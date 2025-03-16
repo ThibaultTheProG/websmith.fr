@@ -6,14 +6,14 @@ import { CheckCircle, Smartphone, Rocket, Users, BarChart } from "lucide-react";
 export default function DevSurMesure() {
   const { isDark, mounted } = useThemeContext();
 
-  if (!mounted){
+  if (!mounted) {
     return (
       <section className="py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <h1>En cours de développement</h1>
         </div>
       </section>
-    )
+    );
   }
 
   const avantages = [
@@ -55,7 +55,9 @@ export default function DevSurMesure() {
             ?
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Le développement d'applications mobiles sur mesure vous offre un contrôle total sur les fonctionnalités, l'expérience utilisateur et l'évolutivité de votre application.
+            {
+              "Le développement d'applications mobiles sur mesure vous offre un contrôle total sur les fonctionnalités, l'expérience utilisateur et l'évolutivité de votre application."
+            }
           </p>
         </div>
 
@@ -100,9 +102,7 @@ export default function DevSurMesure() {
                 <div key={index} className="flex items-start gap-3">
                   <CheckCircle
                     size={20}
-                    className={
-                      isDark ? "text-yellow-dark" : "text-blue-dark"
-                    }
+                    className={isDark ? "text-yellow-dark" : "text-blue-dark"}
                   />
                   <p className="text-gray-600 dark:text-gray-300">{item}</p>
                 </div>
@@ -118,9 +118,7 @@ export default function DevSurMesure() {
                 <div key={index} className="flex items-start gap-3">
                   <CheckCircle
                     size={20}
-                    className={
-                      isDark ? "text-yellow-dark" : "text-blue-dark"
-                    }
+                    className={isDark ? "text-yellow-dark" : "text-blue-dark"}
                   />
                   <p className="text-gray-600 dark:text-gray-300">{item}</p>
                 </div>
@@ -131,4 +129,4 @@ export default function DevSurMesure() {
       </div>
     </section>
   );
-} 
+}
