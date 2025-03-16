@@ -36,7 +36,7 @@ export default function ExpertiseServices() {
           </span>
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          Nous proposons des solutions complètes pour optimiser vos opérations marketing et maximiser votre ROI grâce à l'automatisation et l'analyse de données.
+          {"Nous proposons des solutions complètes pour optimiser vos opérations marketing et maximiser votre ROI grâce à l'automatisation et l'analyse de données."}
         </p>
       </div>
 
@@ -72,7 +72,7 @@ export default function ExpertiseServices() {
               <h3 className="text-xl font-bold">Marketing Automation</h3>
             </div>
             <p className="text-gray-600 dark:text-gray-300">
-              Automatisez vos campagnes marketing pour gagner en efficacité et personnaliser l'expérience client à grande échelle. Workflows, triggers, segmentation avancée.
+              {"Automatisez vos campagnes marketing pour gagner en efficacité et personnaliser l'expérience client à grande échelle. Workflows, triggers, segmentation avancée."}
             </p>
             <div className="mt-4 grid grid-cols-2 gap-3">
               <div className="flex items-center gap-2">
@@ -94,7 +94,7 @@ export default function ExpertiseServices() {
               <h3 className="text-xl font-bold">Plan de Taggage</h3>
             </div>
             <p className="text-gray-600 dark:text-gray-300">
-              Implémentez une stratégie de tracking robuste pour mesurer précisément l'efficacité de vos actions marketing et optimiser votre ROI.
+              {"Implémentez une stratégie de tracking robuste pour mesurer précisément l'efficacité de vos actions marketing et optimiser votre ROI."}
             </p>
             <div className="mt-4 grid grid-cols-2 gap-3">
               <div className="flex items-center gap-2">
@@ -134,7 +134,7 @@ export default function ExpertiseServices() {
         <div className="relative">
           <div className="relative h-[600px] rounded-xl overflow-hidden shadow-xl">
             <Image
-              src="/images/pages/marketing/expertise.jpg"
+              src="/images/pages/marketing/marketingExpertise.jpg"
               alt="Expertise en Marketing Ops"
               fill
               className="object-cover"

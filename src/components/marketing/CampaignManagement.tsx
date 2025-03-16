@@ -108,7 +108,7 @@ export default function CampaignManagement() {
         <div className="relative">
           <div className="relative h-[500px] rounded-xl overflow-hidden shadow-xl">
             <Image
-              src="/images/pages/marketing/campaigns.jpg"
+              src="/images/pages/marketing/marketingMulticanal.jpg"
               alt="Gestion de campagnes marketing"
               fill
               className="object-cover"

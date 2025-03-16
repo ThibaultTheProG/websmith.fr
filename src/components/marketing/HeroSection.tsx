@@ -1,7 +1,7 @@
 "use client";
 
 import { useThemeContext } from "@/app/providers";
-import { BarChart, Database, Mail, Zap } from "lucide-react";
+import { BarChart, Database, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -30,7 +30,7 @@ export default function HeroSection() {
             avancées
           </h1>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300">
-            Optimisez vos opérations marketing grâce à nos solutions sur mesure : automatisation, analyse de données, CRM et stratégies d'acquisition performantes.
+            {"Optimisez vos opérations marketing grâce à nos solutions sur mesure : automatisation, analyse de données, CRM et stratégies d'acquisition performantes."}
           </p>
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
             <Link
@@ -57,7 +57,7 @@ export default function HeroSection() {
         </div>
         <div className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-xl">
           <Image
-            src="/images/pages/marketing/hero.jpg"
+            src="/images/pages/marketing/marketingHero.jpg"
             alt="Marketing Ops et Automatisation"
             fill
             className="object-cover"

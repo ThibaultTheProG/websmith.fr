@@ -8,7 +8,6 @@ export interface Project {
   imageUrl: string;
   link?: string;
   technologies?: string[];
-  client?: string;
 }
 
 export interface Review {

@@ -1,70 +1,12 @@
 "use client";
-
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useThemeContext } from "@/app/providers";
-type ProjectType = "tous" | "web" | "mobile" | "marketing" | "autre";
+import { Project, ProjectType } from "@/lib/types";
+import { projects } from "@/lib/projects";
+import FilterBar from "@/components/realisations/FilterBar";
 
-export interface Project {
-  id: number;
-  title: string;
-  description: string;
-  type: ProjectType;
-  imageUrl: string;
-  projectUrl: string; // URL du projet ou du site client
-}
-
-const projects: Project[] = [
-  {
-    id: 1,
-    title: "Poème Paris",
-    description: "Mise en place de la conformité RGPD et du tracking",
-    type: "marketing",
-    imageUrl: "/images/projects/poemeParis.png",
-    projectUrl: "https://example.com/site-poeme-paris"
-  },
-  {
-    id: 2,
-    title: "Youlive Immobilier",
-    description: "Refonte du site de Youlive Immobilier",
-    type: "web",
-    imageUrl: "/images/projects/youliveSite.png",
-    projectUrl: "https://example.com/site-youlive-immobilier"
-  },
-  {
-    id: 3,
-    title: "Ares Motors",
-    description: "Développement du site de Ares Motors",
-    type: "web",
-    imageUrl: "/images/projects/aresMotors.png",
-    projectUrl: "https://example.com/developpement-site-ares-motors"
-  },
-  {
-    id: 4,
-    title: "FitApp Mobile",
-    description: "Application mobile de suivi fitness",
-    type: "mobile",
-    imageUrl: "/images/projects/fitapp.png",
-    projectUrl: "https://example.com/fitapp-mobile"
-  },
-  {
-    id: 5,
-    title: "EcoShop",
-    description: "Boutique en ligne de produits écologiques",
-    type: "web",
-    imageUrl: "/images/projects/ecoshop.png",
-    projectUrl: "https://example.com/ecoshop-ecommerce"
-  },
-  {
-    id: 6,
-    title: "TravelBuddy",
-    description: "Application de planification de voyages",
-    type: "mobile",
-    imageUrl: "/images/projects/travelbuddy.png",
-    projectUrl: "https://example.com/travelbuddy-app"
-  }
-];
 
 export default function Projects() {
   const [selectedType, setSelectedType] = useState<ProjectType>('tous');
@@ -72,7 +14,6 @@ export default function Projects() {
   const [currentPage, setCurrentPage] = useState(1);
   const projectsPerPage = 3;
   const { mounted } = useThemeContext();
-  const projectTypes: ProjectType[] = ['tous', 'web', 'mobile', 'marketing', 'autre'];
 
   useEffect(() => {
     if (selectedType === 'tous') {
@@ -116,21 +57,7 @@ export default function Projects() {
       </div>
 
       {/* Filtres */}
-      <div className="flex flex-wrap justify-center gap-3">
-        {projectTypes.map((type) => (
-          <button
-            key={type}
-            onClick={() => setSelectedType(type)}
-            className={`px-4 py-2 rounded-full transition-colors ${
-              selectedType === type
-                ? 'dark:bg-yellow-dark light:bg-blue-dark dark:text-black light:text-white'
-                : 'dark:bg-gray-100 light:bg-gray-200 text-gray-700'
-            }`}
-          >
-            {type.charAt(0).toUpperCase() + type.slice(1)}
-          </button>
-        ))}
-      </div>
+      <FilterBar activeFilter={selectedType} setActiveFilter={setSelectedType} />
 
       {/* Grille de projets */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -155,9 +82,10 @@ export default function Projects() {
                 <span className="inline-block px-3 py-1 dark:bg-yellow-dark light:bg-blue-dark dark:text-black light:text-white rounded-full text-sm">
                   {project.type}
                 </span>
-                <Link
-                  href={project.projectUrl} 
-                  target="_blank" 
+                {project.link && (
+                  <Link
+                    href={project.link} 
+                    target="_blank" 
                   rel="noopener noreferrer" 
                   className="dark:text-gray-300 light:text-gray-600 dark:hover:text-yellow-dark light:hover:text-blue-dark flex items-center transition-colors group"
                 >
@@ -176,7 +104,8 @@ export default function Projects() {
                       d="M14 5l7 7m0 0l-7 7m7-7H3" 
                     />
                   </svg>
-                </Link>
+                  </Link>
+                )}
               </div>
             </div>
           </div>
