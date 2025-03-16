@@ -4,7 +4,7 @@ import { useThemeContext } from "@/app/providers";
 import { BarChart, Database, Mail } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-
+import Button from "../ui/button";
 export default function HeroSection() {
   const { isDark, mounted } = useThemeContext();
 
@@ -30,29 +30,21 @@ export default function HeroSection() {
             avancées
           </h1>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300">
-            {"Optimisez vos opérations marketing grâce à nos solutions sur mesure : automatisation, analyse de données, CRM et stratégies d'acquisition performantes."}
+            {
+              "Optimisez vos opérations marketing grâce à nos solutions sur mesure : automatisation, analyse de données, CRM et stratégies d'acquisition performantes."
+            }
           </p>
           <div className="flex flex-col sm:flex-row gap-4 pt-4">
-            <Link
-              href="/contact"
-              className={`px-6 py-3 rounded-lg font-medium text-lg transition-all duration-300 ${
-                isDark
-                  ? "bg-yellow-dark text-black hover:bg-yellow-light"
-                  : "bg-blue-dark text-white hover:bg-blue-light hover:text-black"
-              }`}
-            >
-              Discuter de votre projet
+            <Link href="/contact">
+              <Button variant={isDark ? "primary" : "primaryLight"} size="lg">
+                Discuter de votre projet
+              </Button>
             </Link>
-            <a
-              href="#expertise"
-              className={`px-6 py-3 rounded-lg font-medium text-lg transition-all duration-300 ${
-                isDark
-                  ? "border border-yellow-dark text-yellow-dark hover:bg-yellow-dark hover:text-black"
-                  : "border border-blue-dark text-blue-dark hover:bg-blue-dark hover:text-white"
-              }`}
-            >
-              Découvrir notre expertise
-            </a>
+            <Link href="#expertise">
+              <Button variant={isDark ? "outline" : "outlineLight"} size="lg">
+                Découvrir notre expertise
+              </Button>
+            </Link>
           </div>
         </div>
         <div className="relative h-[400px] md:h-[500px] rounded-xl overflow-hidden shadow-xl">
@@ -101,4 +93,4 @@ export default function HeroSection() {
       </div>
     </section>
   );
-} 
+}

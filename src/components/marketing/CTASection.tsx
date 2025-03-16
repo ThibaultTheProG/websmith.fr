@@ -3,7 +3,7 @@
 import { useThemeContext } from "@/app/providers";
 import { ArrowRight, BarChart, Mail } from "lucide-react";
 import Link from "next/link";
-
+import Button from "../ui/button";
 export default function CTASection() {
   const { isDark, mounted } = useThemeContext();
 
@@ -39,27 +39,13 @@ export default function CTASection() {
               }
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/contact"
-                className={`px-6 py-3 rounded-lg font-medium text-lg transition-all duration-300 inline-flex items-center ${
-                  isDark
-                    ? "bg-yellow-dark text-black hover:bg-yellow-light"
-                    : "bg-blue-dark text-white hover:bg-blue-light hover:text-black"
-                }`}
-              >
-                Demander un devis
-                <ArrowRight size={20} className="ml-2" />
+              <Link href="/contact">
+                <Button variant={isDark ? "primary" : "primaryLight"} size="lg">
+                  Demander un devis
+                  <ArrowRight size={20} className="ml-2" />
+                </Button>
               </Link>
-              <Link
-                href="/realisations"
-                className={`px-6 py-3 rounded-lg font-medium text-lg transition-all duration-300 inline-flex items-center ${
-                  isDark
-                    ? "border border-yellow-dark text-yellow-dark hover:bg-yellow-dark hover:text-black"
-                    : "border border-blue-dark text-blue-dark hover:bg-blue-dark hover:text-white"
-                }`}
-              >
-                Voir nos réalisations
-              </Link>
+              <Link href="/realisations"><Button variant={isDark ? "outline" : "outlineLight"} size="lg">Voir nos réalisations</Button></Link>
             </div>
           </div>
           <div className="flex justify-center">

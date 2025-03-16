@@ -7,7 +7,7 @@ import CTASection from '@/components/devweb/CTASection';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-    title: "WebSmith - Développement de sites web sur mesure",
+    title: "WebSmith - Développement de sites et d'applications web sur mesure",
     description: "Développement de sites web sur mesure, CMS, CRM, SaaS, e-commerce, applications mobiles, etc.",
 }
 

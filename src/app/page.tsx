@@ -19,7 +19,7 @@ export default function Home() {
           <Why />
         </section>
         
-        <section className="py-12 md:py-16">
+        <section id="services" className="py-12 md:py-16">
           <Services />
         </section>
         

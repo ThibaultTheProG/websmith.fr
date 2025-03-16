@@ -29,7 +29,7 @@ export default function ProjectsGrid() {
       : projects.filter((project) => project.type === activeFilter);
 
   return (
-    <section className="py-8">
+    <section className="pb-16 md:pb-24">
       <FilterBar activeFilter={activeFilter} setActiveFilter={setActiveFilter} />
       
       {filteredProjects.length === 0 ? (

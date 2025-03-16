@@ -67,7 +67,7 @@ export default function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 bg-white dark:bg-black-light transition-all duration-300 ${
+      className={`sticky top-0 z-50 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black-light transition-all duration-300 ${
         isScrolled ? "shadow-lg" : ""
       }`}
     >
@@ -127,7 +127,7 @@ export default function Header() {
           </div>
 
           {/* Boutons Mobile (Menu + Theme) */}
-          <div className="lg:hidden flex items-center space-x-2">
+          <div className="lg:hidden flex items-center space-x-2 ">
             {/* Bouton Theme Toggle Mobile */}
             <button
               onClick={toggleTheme}
