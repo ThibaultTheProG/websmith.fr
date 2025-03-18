@@ -55,9 +55,12 @@ export default function Hero() {
           <Image
             src={isDark ? "/images/SVG/b_hero.svg" : "/images/SVG/l_hero.svg"}
             alt="Illustration de développement web"
-            fill
-            style={{ objectFit: "contain" }}
+            width={384}
+            height={384}
+            sizes="(max-width: 768px) 256px, 384px"
+            loading="eager"
             priority
+            style={{ objectFit: "contain", width: "100%", height: "100%" }}
           />
         </div>
       </div>
