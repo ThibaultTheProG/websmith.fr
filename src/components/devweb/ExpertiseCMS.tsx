@@ -65,7 +65,7 @@ export default function ExpertiseCMS() {
     {
       title: "Shopify",
       description:
-        "Développement de solutions e-commerce personnalisées avec une expérience d&apos;achat fluide et des fonctionnalités marketing intégrées.",
+        "Développement de solutions e-commerce personnalisées avec une expérience d'achat fluide et des fonctionnalités marketing intégrées.",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"

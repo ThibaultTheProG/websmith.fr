@@ -93,8 +93,8 @@ export const sendContactEmail = onRequest(
         to: formData.email,
         subject: "Confirmation de votre message - WebSmith",
         html: `
-          <h2>Merci pour votre message, ${formData.fullName}!</h2>
-          <p>Nous avons bien reçu votre demande concernant "${
+          <h2>Merci pour votre message, ${formData.fullName} !</h2>
+          <p>Nous avons bien reçu votre demande concernant l'objet "${
             formData.subject
           }".</p>
           <p>Notre équipe va étudier votre projet et vous recontactera dans les plus brefs délais.</p>

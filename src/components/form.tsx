@@ -5,6 +5,7 @@ import { FormData } from "@/lib/types";
 import { useThemeContext } from "@/app/providers";
 import { Send, User, Mail, Phone, FileText, CheckCircle, Tag } from "lucide-react";
 import config from "@/lib/config";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 export default function Form() {
   const { mounted, isDark } = useThemeContext();
@@ -73,6 +74,8 @@ export default function Form() {
         
         if (!response.ok) {
           throw new Error(data.message || 'Une erreur est survenue lors de l\'envoi du formulaire');
+        } else {
+          sendGTMEvent({event: "contactFormSubmit", value: formData});
         }
         
         // Afficher le message de succès

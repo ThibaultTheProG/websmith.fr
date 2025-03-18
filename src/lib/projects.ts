@@ -40,7 +40,7 @@ export const projects: Project[] = [
     description: "Développement du site internet.",
     type: "site-internet",
     imageUrl: "/images/projects/helaSerenite.png",
-    link: "hela-serenite.fr",
+    link: "https://hela-serenite.fr/",
     technologies: ["WordPress", "PHP", "CSS", "JavaScript"],
     
   },

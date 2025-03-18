@@ -16,20 +16,20 @@ interface Review {
 const reviews: Review[] = [
   {
     id: 1,
-    clientName: "Marie Laurent",
+    clientName: "Mickael",
     companyName: "Poème Paris",
     logoUrl: "/images/clients/poemeParis.png",
     content:
-      "WebSmith a parfaitement compris nos besoins et a mis en place une solution RGPD efficace tout en optimisant notre tracking marketing. Un vrai plus pour notre activité !",
+      "Je recommande vivement Thibault pour son professionnalisme et sa disponibilité durant toutes les missions sur lesquelles nous avons collaboré, ainsi que pour celles que nous entreprendrons à l'avenir. Ses conseils pertinents et son suivi rigoureux des missions sont remarquables. J'ai particulièrement apprécié son engagement à maximiser l'efficacité tout en maîtrisant les budgets de manière globale. Bravo !",
     rating: 5,
   },
   {
     id: 2,
-    clientName: "Thomas Dubois",
+    clientName: "Gérard Chareyre",
     companyName: "Youlive Immobilier",
     logoUrl: "/images/clients/youlive.png",
     content:
-      "La refonte de notre site web a été un véritable succès. L'équipe a su moderniser notre image tout en conservant notre identité. Très professionnel !",
+      "Thibault est avant tout une personne sur qui l'on peut compter ! Nous le missionnons depuis presque un an sur le développement du site, pour le développement d'applications spécifiques à nos besoins et en support informatique pour nos collaborateurs.. Il est fiable, consciencieux, réfléchis et force de proposition, nous le recommandons.",
     rating: 5,
   },
   {
@@ -38,7 +38,7 @@ const reviews: Review[] = [
     companyName: "Ares Motors",
     logoUrl: "/images/clients/aresMotors.svg",
     content:
-      "Un travail remarquable sur le développement de notre site. L'interface est intuitive et le design est à la hauteur de nos attentes. Je recommande vivement !",
+      "Thibault a été très réactif à mes demandes. Il a réalisé pour notre société le site internet avec passerelle via api . Puis un autre projet. Il a toujours su répondre à mes demandes. Je recommande, et je n'hésiterai pas à repasser par ces services à l'avenir.",
     rating: 5,
   },
 ];
@@ -63,17 +63,19 @@ export default function Reviews() {
       <div className="flex flex-col space-y-8">
         <div className="text-center space-y-4">
           <div className="h-6 w-36 bg-gray-200 dark:bg-gray-700 rounded"></div>
-          <div className="h-12 w-full max-w-md bg-gray-200 dark:bg-gray-700 rounded"></div> 
+          <div className="h-12 w-full max-w-md bg-gray-200 dark:bg-gray-700 rounded"></div>
           <div className="h-20 w-full max-w-2xl bg-gray-200 dark:bg-gray-700 rounded"></div>
         </div>
       </div>
-    )
+    );
   }
 
   return (
     <div className="flex flex-col space-y-8">
       <div className="text-center space-y-4">
-        <span className="dark:text-yellow-dark light:text-blue-dark font-medium">Témoignages</span>
+        <span className="dark:text-yellow-dark light:text-blue-dark font-medium">
+          Témoignages
+        </span>
         <h2 className="text-3xl md:text-4xl font-bold">
           Ils nous font confiance
         </h2>
@@ -160,8 +162,12 @@ export default function Reviews() {
 
             {/* Informations client */}
             <div className="text-center">
-              <p className="font-semibold text-black">{reviews[currentIndex].clientName}</p>
-              <p className="text-gray-600">{reviews[currentIndex].companyName}</p>
+              <p className="font-semibold text-black">
+                {reviews[currentIndex].clientName}
+              </p>
+              <p className="text-gray-600">
+                {reviews[currentIndex].companyName}
+              </p>
             </div>
           </div>
         </div>
@@ -173,7 +179,9 @@ export default function Reviews() {
               key={index}
               onClick={() => setCurrentIndex(index)}
               className={`w-2 h-2 rounded-full transition-colors ${
-                index === currentIndex ? 'dark:bg-yellow-dark light:bg-blue-dark' : 'dark:bg-gray-200 light:bg-gray-200'
+                index === currentIndex
+                  ? "dark:bg-yellow-dark light:bg-blue-dark"
+                  : "dark:bg-gray-200 light:bg-gray-200"
               }`}
               aria-label={`Aller à l'avis ${index + 1}`}
             />

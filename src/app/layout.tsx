@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "./header";
 import Footer from "./footer";
 import { Providers } from "./providers";
+import { GoogleTagManager } from '@next/third-parties/google'
 
 export const metadata: Metadata = {
   title: "WebSmith - Développement web & mobile sur mesure",
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="fr" suppressHydrationWarning>
       <head>
+        <GoogleTagManager gtmId="GTM-5P34XP5W" />
         {/* Script anti-flash pour définir le thème avant le chargement de React */}
         <script dangerouslySetInnerHTML={{
           __html: `

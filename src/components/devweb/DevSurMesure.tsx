@@ -30,7 +30,7 @@ export default function DevSurMesure() {
     {
       title: "React",
       description:
-        "Développement d&apos;applications web dynamiques et interactives avec une architecture modulaire et des performances optimales.",
+        "Développement d'applications web dynamiques et interactives avec une architecture modulaire et des performances optimales.",
       icon: (
         <svg
           xmlns="http://www.w3.org/2000/svg"

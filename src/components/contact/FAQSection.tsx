@@ -37,7 +37,7 @@ export default function FAQSection() {
     {
       question: "Quels types de projets acceptez-vous ?",
       answer:
-        "Nous travaillons sur une variété de projets web et mobiles, des sites vitrines aux applications complexes, en passant par les e-commerces et les solutions SaaS. N&apos;hésitez pas à nous contacter même si votre projet sort des sentiers battus !",
+        "Nous travaillons sur une variété de projets web et mobiles, des sites vitrines aux applications complexes, en passant par les e-commerces et les solutions SaaS. N'hésitez pas à nous contacter même si votre projet sort des sentiers battus !",
     },
   ];
   

@@ -8,14 +8,14 @@ import Link from "next/link";
 export default function HeroSection() {
   const { isDark, mounted } = useThemeContext();
 
-  if (!mounted){
+  if (!mounted) {
     return (
       <section className="py-16 md:py-24">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <h1>En cours de développement</h1>
         </div>
       </section>
-    )
+    );
   }
 
   return (
@@ -23,9 +23,9 @@ export default function HeroSection() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
         <div className="space-y-6">
           <h1 className="text-3xl md:text-5xl font-bold leading-tight">
-            {"Développement d'applications mobiles"}
+            {"Développement d'applications"}{" "}
             <span className={isDark ? "text-yellow-dark" : "text-blue-dark"}>
-              sur mesure
+              mobiles sur mesure
             </span>
           </h1>
           <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300">
