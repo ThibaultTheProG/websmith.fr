@@ -1,9 +1,10 @@
 "use client";
 
 import { useThemeContext } from "@/app/providers";
-import { ArrowRight, BarChart, Mail } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import Link from "next/link";
 import Button from "../ui/button";
+import Image from "next/image";
 export default function CTASection() {
   const { isDark, mounted } = useThemeContext();
 
@@ -49,44 +50,7 @@ export default function CTASection() {
             </div>
           </div>
           <div className="flex justify-center">
-            <div
-              className={`relative w-64 h-64 rounded-full flex items-center justify-center ${
-                isDark ? "bg-gray-700" : "bg-white"
-              }`}
-            >
-              <div
-                className={`absolute w-full h-full rounded-full animate-pulse opacity-50 ${
-                  isDark ? "bg-yellow-dark/20" : "bg-blue-dark/20"
-                }`}
-              ></div>
-              <div
-                className={`absolute w-3/4 h-3/4 rounded-full animate-pulse opacity-50 ${
-                  isDark ? "bg-yellow-dark/30" : "bg-blue-dark/30"
-                }`}
-              ></div>
-              <div className="relative z-10 flex flex-col items-center">
-                <div
-                  className={`p-4 rounded-full mb-4 ${
-                    isDark ? "bg-yellow-dark" : "bg-blue-dark"
-                  }`}
-                >
-                  <BarChart
-                    size={32}
-                    className={isDark ? "text-black" : "text-white"}
-                  />
-                </div>
-                <div
-                  className={`p-4 rounded-full ${
-                    isDark ? "bg-yellow-dark" : "bg-blue-dark"
-                  }`}
-                >
-                  <Mail
-                    size={32}
-                    className={isDark ? "text-black" : "text-white"}
-                  />
-                </div>
-              </div>
-            </div>
+            <Image src={isDark ? "/images/SVG/marketing/b_optiCTA.svg" : "/images/SVG/marketing/l_optiCTA.svg"} alt="CTA" width={500} height={500} />
           </div>
         </div>
       </div>
