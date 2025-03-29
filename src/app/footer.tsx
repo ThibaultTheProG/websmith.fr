@@ -38,7 +38,7 @@ export default function Footer() {
 
           {/* Coordonnées */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold dark:text-yellow-dark light:text-blue-dark">Contact</h3>
+            <span className="text-lg font-semibold dark:text-yellow-dark light:text-blue-dark">Contact</span>
             <ul className="space-y-2 dark:text-gray-400 light:text-gray-600">
               <li className="flex items-center space-x-2">
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
@@ -62,7 +62,7 @@ export default function Footer() {
 
           {/* Liens Rapides */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold dark:text-yellow-dark light:text-blue-dark">Liens Rapides</h3>
+            <span className="text-lg font-semibold dark:text-yellow-dark light:text-blue-dark">Liens Rapides</span>
             <ul className="space-y-2 dark:text-gray-400 light:text-gray-600">
               <li>
                 <Link href="/devweb" className="dark:hover:text-yellow-dark light:hover:text-blue-dark transition-colors">
@@ -94,7 +94,7 @@ export default function Footer() {
 
           {/* Réseaux Sociaux */}
           <div className="space-y-4">
-            <h3 className="text-lg font-semibold dark:text-yellow-dark light:text-blue-dark">Suivez-nous</h3>
+            <span className="text-lg font-semibold dark:text-yellow-dark light:text-blue-dark">Suivez-nous</span>
             <div className="flex space-x-4">
               <a
                 href="https://linkedin.com"
